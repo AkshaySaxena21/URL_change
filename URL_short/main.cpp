@@ -4,39 +4,38 @@
 
 using namespace std;
 
-string idToShortURL(long int n)
+string URL_change(long int n)
 {
 
     char map[] = "abcdefghijklmnopqrstuvwxyzABCDEF"
                  "GHIJKLMNOPQRSTUVWXYZ0123456789";
 
-    string shorturl;
+    string URL;
 
     while (n)
     {
 
-        shorturl.push_back(map[n%62]);
+        URL.push_back(map[n%62]);
         n = n/62;
     }
 
-    reverse(shorturl.begin(), shorturl.end());
+    reverse(URL.begin(), URL.end());
 
-    return shorturl;
+    return URL;
 }
 
-long int shortURLtoID(string shortURL)
+long int URLtoID(string URL)
 {
     long int id = 0;
 
 
-    for (int i=0; i < shortURL.length(); i++)
+    for (int i=0; i < URL.length(); i++)
     {
-        if ('a' <= shortURL[i] && shortURL[i] <= 'z')
-          id = id*62 + shortURL[i] - 'a';
-        if ('A' <= shortURL[i] && shortURL[i] <= 'Z')
-          id = id*62 + shortURL[i] - 'A' + 26;
-       // if ('0' <= shortURL[i] && shortURL[i] <= '9')
-         // id = id*62 + shortURL[i] - '0' + 52;
+        if ('a' <= URL[i] && URL[i] <= 'z')
+          id = id*62 + URL[i] - 'a';
+        if ('A' <= URL[i] && URL[i] <= 'Z')
+          id = id*62 + URL[i] - 'A' + 26;
+
     }
     return id;
 }
@@ -47,9 +46,9 @@ int main()
     int n = 12345;
 
 
-    string shorturl = idToShortURL(n);
+    string URL = URL_change(n);
     cout<<"enter the url that you want to make it short :- ";
-      cin >> shorturl;
-    cout << "short Id form url is " << shortURLtoID(shorturl);
+      cin >> URL;
+    cout << "short Id form of url is " << URLtoID(URL);
     return 0;
 }
