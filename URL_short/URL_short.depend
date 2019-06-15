@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1560579111 source:c:\users\akshay saxena\desktop\url_c++\url_short\main.cpp
+	<iostream>
+	<algorithm>
+	<string>
+
